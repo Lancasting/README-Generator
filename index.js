@@ -34,12 +34,12 @@ function promptUser() {
             }
             writeToFile("README.md", generateMD(answers));
 
-            const queryURL = `https://api.github.com/users/${answers.github}`
-            axios.get(queryURL).then(function (image) {
-                const imageURL = image.avatar_url;
+            // const queryURL = `https://api.github.com/users/${answers.github}`
+            // axios.get(queryURL).then(function (image) {
+            //     const imageURL = image.avatar_url;
 
-            })
-            writeToFile("README.md", generateMD(imageURL));
+            // })
+            // writeToFile("README.md", generateMD(imageURL));
         })
 
 }

@@ -183,9 +183,9 @@ SOFTWARE.
 
 Github Email: ${answers.email}
 
-# ${image.avatar_url}
-![github badge](githubURL)
-`;
+// #
+// ![github badge](githubURL)
+// `;
 }
 
 module.exports = generateMarkdown;
