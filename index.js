@@ -2,10 +2,11 @@ const inquirer = require("inquirer");
 const generateMD = require("./generateMarkdown");
 const fs = require("fs");
 const util = require("util");
-// const writeFileSync = util.promisify(fs.writeFile);
+const axios = require("axios");
+const appendFile = util.promisify(fs.appendFile);
 
-function promptUser() {
-    return inquirer.prompt([
+async function promptUser() {
+    let answers = await inquirer.prompt([
         {
             type: "input",
             name: "title",
@@ -28,19 +29,16 @@ function promptUser() {
         },
 
     ])
-        .then(function (answers) {
-            function writeToFile(filename, answers) {
-                return fs.writeFileSync(filename, answers);
-            }
-            writeToFile("README.md", generateMD(answers));
+    // function appendToFile(filename, answers) {
+    //     return fs.writeFileSync(filename, answers);
+    // }
+    appendFile("README.md", generateMD(answers));
 
-            // const queryURL = `https://api.github.com/users/${answers.github}`
-            // axios.get(queryURL).then(function (image) {
-            //     const imageURL = image.avatar_url;
-
-            // })
-            // writeToFile("README.md", generateMD(imageURL));
-        })
+    const queryURL = `https://api.github.com/users/${answers.github}`
+    let response = await axios.get(queryURL)
+        const imageURL = response.data.avatar_url;
+        console.log(response);
+    appendFile("README.md", generateMD(imageURL));
 
 }
 

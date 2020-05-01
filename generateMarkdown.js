@@ -184,7 +184,7 @@ SOFTWARE.
 Github Email: ${answers.email}
 
 // #
-// ![github badge](githubURL)
+ ![github badge](githubURL)
 // `;
 }
 
