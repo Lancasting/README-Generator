@@ -32,13 +32,13 @@ async function promptUser() {
     // function appendToFile(filename, answers) {
     //     return fs.writeFileSync(filename, answers);
     // }
-    appendFile("README.md", generateMD(answers));
+    // appendFile("README.md", generateMD(answers));
 
     const queryURL = `https://api.github.com/users/${answers.github}`
     let response = await axios.get(queryURL)
         const imageURL = response.data.avatar_url;
-        console.log(response);
-    appendFile("README.md", generateMD(imageURL));
+        console.log(imageURL);
+    appendFile("README.md", generateMD(answers, imageURL));
 
 }
 

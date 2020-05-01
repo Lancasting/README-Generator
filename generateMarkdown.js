@@ -1,4 +1,4 @@
-function generateMarkdown(answers) {
+function generateMarkdown(answers, imageURL) {
   return `
 # Project Title: ${answers.title}
 
@@ -181,11 +181,13 @@ SOFTWARE.
 
 # Github
 
+![Profile Image](${imageURL})
+
 Github Email: ${answers.email}
 
-// #
- ![github badge](githubURL)
-// `;
+![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)
+
+`;
 }
 
 module.exports = generateMarkdown;
