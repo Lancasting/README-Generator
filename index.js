@@ -3,7 +3,7 @@ const generateMD = require("./generateMarkdown");
 const fs = require("fs");
 const util = require("util");
 const axios = require("axios");
-const appendFile = util.promisify(fs.appendFile);
+const writeFileSync = util.promisify(fs.appendFile);
 
 async function promptUser() {
     let answers = await inquirer.prompt([
@@ -38,7 +38,7 @@ async function promptUser() {
     let response = await axios.get(queryURL)
         const imageURL = response.data.avatar_url;
         console.log(imageURL);
-    appendFile("README.md", generateMD(answers, imageURL));
+    fs.writeFileSync("README.md", generateMD(answers, imageURL));
 
 }
 
