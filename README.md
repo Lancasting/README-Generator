@@ -1,6 +1,5 @@
-function generateMarkdown(answers, imageURL) {
-  return `
-# Project Title: ${answers.title}
+
+# Project Title: README Generator
 
 # Instructions:
 
@@ -12,7 +11,7 @@ Then follow the prompts.
 
 # Description of the project: 
 
-${answers.description}
+To create a README quickly that is already styled.
 
 # User story
 
@@ -191,9 +190,9 @@ SOFTWARE.
 
 # Github
 
-![Profile Image](${imageURL})
+![Profile Image](https://avatars2.githubusercontent.com/u/60726033?v=4)
 
-Github Email: ${answers.email}
+Github Email: samuellancaster66@gmail.com
 
 ![built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)
 
@@ -206,7 +205,3 @@ What is the title of your project? README Generator
 Please write a description for you project. This is usefule for created a README with styling already set in Markdown
 What is your Github email? user@domain.com
 What is your Github username? username</code></pre>
-`;
-}
-
-module.exports = generateMarkdown;
